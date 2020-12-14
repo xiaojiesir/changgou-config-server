@@ -1,14 +1,21 @@
+config:
+  info: 123
 server:
-  port: 18087
+  port: 8001
 spring:
   application:
-    name: user
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.211.132:3306/changgou_user?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
+    name: config-server
   cloud:
-    alibaba:
-      seata:
-        tx-service-group: my_test_tx_group
+    config:
+      server:
+        git:
+          uri: https://github.com/xiaojiesir/changgou-config-server.git
+          default-label: main
+          basedir: D:/config/tmp
+          force-pull: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
