@@ -1,3 +1,5 @@
+config: 
+  info: xiaojiesir
 server:
   port: 8001
 spring:
